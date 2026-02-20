@@ -1,0 +1,606 @@
+:root {
+  --header-h: 72px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #070707; /* oder #000 */
+  color: white;
+}
+
+/* Fixed header */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-h);
+  z-index: 1000;
+
+  /* Style */
+  background: rgb(0, 0, 0);
+  color: white;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.logo img {
+  height: 55px;
+  width: auto;
+  display: block;
+}
+
+.container {
+  width: min(1100px, 100% - 32px);
+  margin: 0 auto;
+}
+
+.header-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 16px;
+  opacity: 0.9;
+}
+.nav a:hover { opacity: 1; }
+
+/* Wichtig: Platz für den fixed header schaffen */
+.page {
+  padding-top: var(--header-h);
+}
+
+/* Damit Sprunglinks (#about etc.) nicht unter dem Header landen */
+.section {
+  padding: 80px 0;
+  scroll-margin-top: calc(var(--header-h) + 12px);
+}
+
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.hero {
+  min-height: 100vh;
+  background-image: url("../assets/images/schafopenair.JPG");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+}
+
+/* dunkles Overlay für bessere Lesbarkeit */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* Inhalt über dem Overlay */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+}
+
+/* =========================
+   HERO TEXT
+   ========================= */
+
+.hero-logo {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.hero-claim {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  margin-bottom: 32px;
+  opacity: 0.95;
+}
+
+/* =========================
+   BUTTON
+   ========================= */
+
+.btn-primary {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 999px;
+
+  background: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+   ABOUT SECTION
+   ========================= */
+
+.about {
+  background: #171717; /* dunkler Abschnitt, passt zum Hero */
+  color: white;
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Hochkant-Bild */
+.about-image img {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 3 / 4;     /* Hochkant-Feeling */
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
+/* Text */
+.about-text h2 {
+  margin: 0 0 16px;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  letter-spacing: 0.2px;
+}
+
+.about-text p {
+  margin: 0 0 14px;
+  max-width: 60ch;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.about-name {
+  white-space: nowrap;
+}
+
+/* Optionaler zweiter Button-Stil */
+.btn-secondary {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 22px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(255,255,255,0.35);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.55);
+}
+
+/* Responsive: auf Mobile untereinander */
+@media (max-width: 800px) {
+  .about-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image img {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .about-text {
+    text-align: left;
+  }
+}
+
+/* =========================
+   DEMO SETS
+   ========================= */
+
+.section-title {
+  margin: 0 0 12px;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  letter-spacing: 0.2px;
+  color: white;
+}
+
+.section-subtitle {
+  margin: 0 0 32px;
+  max-width: 70ch;
+  line-height: 1.6;
+  opacity: 0.92;
+  color: white;
+}
+
+.demosets {
+  background: #070707; /* leicht anders als About für klare Trennung */
+  color: white;
+}
+
+.demosets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.demo-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 18px;
+  backdrop-filter: blur(8px);
+}
+
+.demo-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.demo-title {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.demo-tag {
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.22);
+  opacity: 0.95;
+}
+
+.demo-desc {
+  margin: 0 0 14px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* Audio Player Styling (Browser-abhängig, aber spacing passt) */
+.demo-audio {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .demosets-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-card {
+    padding: 16px;
+  }
+}
+
+.demo-embed {
+  margin-top: 10px;
+}
+
+/* Mixcloud responsive */
+.demo-embed iframe {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* =========================
+   EQUIPMENT
+   ========================= */
+
+.equipment {
+  background: #171717;
+  color: white;
+}
+
+.equipment-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Bild */
+.equipment-image img {
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+  object-fit: cover;
+}
+
+/* Text */
+.equipment-text h2 {
+  margin: 0 0 16px;
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+}
+
+.equipment-text p {
+  margin: 0 0 14px;
+  line-height: 1.6;
+  opacity: 0.95;
+  max-width: 60ch;
+}
+
+/* Hinweis unten */
+.equipment-note {
+  margin-top: 30px;
+  text-align: center;
+  max-width: 70ch;
+}
+
+.equipment-note p {
+  opacity: 0.9;
+  line-height: 1.6;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .equipment-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .equipment-image {
+    order: -1;
+  }
+
+  .equipment-note {
+    text-align: left;
+  }
+}
+
+/* =========================
+   CONTACT SIMPLE
+   ========================= */
+
+.contact {
+  background: #070707;
+  color: white;
+  text-align: center;
+  padding-bottom: 200px;
+  padding-top: 150px;
+}
+
+.contact-center {
+  max-width: 700px;
+}
+
+.contact h2 {
+  margin: 0 0 12px;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.contact-lead {
+  margin: 0 0 14px;
+  line-height: 1.6;
+  opacity: 0.92;
+}
+
+.contact-info-text {
+  margin: 0 0 26px;
+  opacity: 0.85;
+}
+
+/* Buttons */
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.contact-button {
+  padding: 14px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.05);
+
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-button:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.5);
+}
+
+.contact-note {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.site-footer {
+  background: #000;
+  color: white;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-logo {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.footer-copy {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav a.active {
+  opacity: 1;
+  border-bottom: 2px solid white;
+}
+
+@media (max-width: 768px) {
+  .section:not(.hero) {
+    transition: all 0.4s ease;
+  }
+}
+
+
+
+
+
+
+/* =========================
+   LEGAL PAGES
+   ========================= */
+
+/* FIX: Legal Pages sollen immer dunkel auf hell sein */
+body.legal-page {
+  background: #f5f5f5;
+  color: #111;
+}
+
+body.legal-page .page {
+  padding-top: var(--header-h); /* falls du den Header auch auf legal pages nutzt */
+}
+
+body.legal-page .legal {
+  background: #ffffff;
+  color: #111;
+  padding: 40px;
+  border-radius: 20px;
+  margin: 40px 0;
+}
+
+body.legal-page .legal * {
+  color: #111 !important;
+}
+
+.legal-inner {
+  max-width: 800px;
+}
+
+.legal h1 {
+  margin-bottom: 20px;
+}
+
+.legal h2 {
+  margin-top: 28px;
+}
+
+.legal p {
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* Animation auf Legal-Seiten deaktivieren */
+body.legal-page .section {
+  opacity: 1;
+  transform: none;
+}
+
+
+/* Demo Sets - Coming Soon */
+.demosets-soon .soon-card{
+  position: relative;
+  border-radius: 18px;
+  padding: 28px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.demosets-soon .soon-badge{
+  display: inline-block;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  margin-bottom: 14px;
+}
