@@ -3,20 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Til Teuchert (DJ-Lit) - Professioneller Event-DJ in Baden-Württemberg.">
-    <title>DJ-LIT</title>
+    <meta name="description" content="Til Teuchert (DJ-Lit) – professioneller Event-DJ in Baden-Württemberg für Hochzeiten, Geburtstage, Firmenfeiern und Clubs.">
+    <meta name="theme-color" content="#070707">
+    <title>DJ-LIT – Event-DJ in Baden-Württemberg</title>
+
+    <link rel="icon" type="image/png" href="assets/images/litlogoweissaufschwarz.png">
+    <link rel="apple-touch-icon" href="assets/images/litlogoweissaufschwarz.png">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DJ-LIT – Event-DJ in Baden-Württemberg">
+    <meta property="og:description" content="Til Teuchert (DJ-Lit) – die perfekte Musik für eure Feier. Hochzeiten, Geburtstage, Firmenfeiern und Clubs.">
+    <meta property="og:image" content="assets/images/schafopenair.JPG">
+    <meta property="og:locale" content="de_DE">
+    <meta name="twitter:card" content="summary_large_image">
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="preload" as="image" href="assets/images/schafopenair.JPG">
 </head>
 
-<body>
+<body id="top">
     <header class="site-header">
         <div class="container header-inner">
-            <a class="logo" href="#top">
-                <img src="assets/images/litlogoweissaufschwarz.png" alt="DJ-LIT Logo">
+            <a class="logo" href="#top" aria-label="Zur Startseite">
+                <img src="assets/images/litlogoweissaufschwarz.png" alt="DJ-LIT Logo" width="55" height="55">
             </a>
 
-            <nav class="nav">
+            <button class="nav-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="primary-nav">
+                <span></span>
+            </button>
+
+            <nav id="primary-nav" class="nav" aria-label="Hauptnavigation">
                 <a href="#about">About</a>
                 <a href="#demosets-soon">Demo Sets</a>
                 <a href="#equipment">Equipment</a>
@@ -44,8 +61,7 @@
         <div class="container about-inner">
 
             <div class="about-image">
-            <!-- Bild: später einfach src austauschen -->
-            <img src="assets/images/pressefoto.JPG" alt="DJ-LIT Portrait" loading="lazy">
+            <img src="assets/images/pressefoto.JPG" alt="DJ-LIT Portrait" loading="lazy" width="3881" height="5821">
             </div>
 
             <div class="about-text">
@@ -147,9 +163,8 @@
     <section id="equipment" class="section equipment">
         <div class="container equipment-inner">
 
-            <!-- Bild -->
             <div class="equipment-image">
-            <img src="assets/images/flx10.png" alt="Pioneer DDJ-FLX10 Controller">
+            <img src="assets/images/flx10.png" alt="Pioneer DDJ-FLX10 Controller" loading="lazy" width="1792" height="1316">
             </div>
 
             <!-- Text -->
