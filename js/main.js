@@ -4,26 +4,7 @@ if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
-// Section reveal animations.
-// CSS hides .section only when <body class="reveal"> is set, so no-JS users see everything.
 const sections = document.querySelectorAll(".section");
-const isLegalPage = document.body.classList.contains("legal-page");
-
-if (sections.length && !isLegalPage && "IntersectionObserver" in window) {
-  document.body.classList.add("reveal");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-  sections.forEach((section) => observer.observe(section));
-}
 
 // Active nav link on scroll
 const navLinks = document.querySelectorAll(".nav a");

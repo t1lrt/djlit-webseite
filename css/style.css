@@ -569,36 +569,9 @@ body {
   }
 }
 
-/* Reveal animation: only applied when JS adds .reveal, so no-JS users still see content */
-.reveal .section {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.reveal .section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal .section,
-  .reveal .section.visible {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
-
 .nav a.active {
   opacity: 1;
   border-bottom: 2px solid white;
-}
-
-@media (max-width: 768px) {
-  .reveal .section:not(.hero) {
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
 }
 
 
