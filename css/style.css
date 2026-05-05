@@ -174,14 +174,8 @@ body {
 
 .hero-logo {
   font-size: clamp(2.5rem, 6vw, 4rem);
-  margin-bottom: 16px;
+  margin: 0 0 32px;
   letter-spacing: 1px;
-}
-
-.hero-claim {
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-  margin-bottom: 32px;
-  opacity: 0.95;
 }
 
 /* =========================
@@ -645,4 +639,60 @@ body.legal-page .legal * {
   border: 1px solid rgba(255,255,255,0.18);
   background: rgba(255,255,255,0.08);
   margin-bottom: 14px;
+}
+
+/* =========================
+   EVENTS
+   ========================= */
+
+.events {
+  background: #171717;
+  color: white;
+}
+
+.events-inner {
+  text-align: center;
+}
+
+.events .section-title,
+.events .section-subtitle {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.event-embed {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+}
+
+.event-embed iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+}
+
+.event-cta {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.event-cta iframe {
+  max-width: 100%;
+}
+
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #60BF00;
+  outline-offset: 3px;
+  border-radius: 4px;
 }
