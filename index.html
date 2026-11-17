@@ -37,6 +37,7 @@
                 <!-- Event vorbei – Reiter ausgeblendet (zum Reaktivieren diese Kommentarzeichen entfernen) -->
                 <!-- <a href="#events">Events</a> -->
                 <a href="#about">About</a>
+                <a href="#impressionen">Impressionen</a>
                 <a href="#demosets-soon">Demo Sets</a>
                 <a href="#equipment">Equipment</a>
                 <a href="#contact">Kontakt</a>
@@ -110,6 +111,66 @@
 
         </div>
     </section>
+
+    <section id="impressionen" class="section gallery" aria-labelledby="gallery-title">
+        <div class="container gallery-head">
+            <div>
+                <h2 id="gallery-title" class="section-title">Impressionen</h2>
+                <p class="section-subtitle">Ein paar Eindrücke von den letzten Events.</p>
+            </div>
+
+            <div class="gallery-controls">
+                <button class="gallery-arrow" type="button" data-dir="-1" aria-label="Vorheriges Bild">
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button class="gallery-arrow" type="button" data-dir="1" aria-label="Nächstes Bild">
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="gallery-track" tabindex="0" role="region" aria-label="Fotogalerie, horizontal scrollbar">
+            <button class="gallery-item" type="button" data-full="assets/images/gallery/event-01-large.jpg" aria-label="Bild 1 vergrößern">
+                <img src="assets/images/gallery/event-01.jpg" alt="DJ LIT hinter dem Pult auf der Bühne, davor ein leuchtender DJ-LIT-Schriftzug und rote Lichtstrahlen" width="800" height="1200" loading="lazy" decoding="async">
+            </button>
+            <button class="gallery-item" type="button" data-full="assets/images/gallery/event-02-large.jpg" aria-label="Bild 2 vergrößern">
+                <img src="assets/images/gallery/event-02.jpg" alt="DJ LIT mit erhobenem Arm hinter dem Mischpult, Gäste feiern im Hintergrund" width="800" height="1200" loading="lazy" decoding="async">
+            </button>
+            <button class="gallery-item" type="button" data-full="assets/images/gallery/event-03-large.jpg" aria-label="Bild 3 vergrößern">
+                <img src="assets/images/gallery/event-03.jpg" alt="DJ LIT und ein Freund lachen gemeinsam am DJ-Pult" width="800" height="1200" loading="lazy" decoding="async">
+            </button>
+            <button class="gallery-item" type="button" data-full="assets/images/gallery/event-04-large.jpg" aria-label="Bild 4 vergrößern">
+                <img src="assets/images/gallery/event-04.jpg" alt="Schwarz-Weiß-Foto: DJ LIT jubelt mit erhobenem Arm mitten in der tanzenden Menge" width="800" height="1200" loading="lazy" decoding="async">
+            </button>
+            <button class="gallery-item" type="button" data-full="assets/images/gallery/event-05-large.jpg" aria-label="Bild 5 vergrößern">
+                <img src="assets/images/gallery/event-05.jpg" alt="DJ LIT lachend im weißen Hemd vor einem blauen Neonschild" width="800" height="1200" loading="lazy" decoding="async">
+            </button>
+            <button class="gallery-item" type="button" data-full="assets/images/gallery/event-06-large.jpg" aria-label="Bild 6 vergrößern">
+                <img src="assets/images/gallery/event-06.jpg" alt="DJ LIT mit Kopfhörern am Controller, die Menge feiert direkt hinter ihm" width="800" height="1200" loading="lazy" decoding="async">
+            </button>
+            <button class="gallery-item" type="button" data-full="assets/images/gallery/event-07-large.jpg" aria-label="Bild 7 vergrößern">
+                <img src="assets/images/gallery/event-07.jpg" alt="DJ LIT ruft ins Publikum, im Hintergrund blaues Bühnenlicht und eine LED-Wand" width="800" height="1200" loading="lazy" decoding="async">
+            </button>
+        </div>
+
+        <div class="container">
+            <div class="gallery-progress" aria-hidden="true"><span></span></div>
+        </div>
+    </section>
+
+    <dialog class="lightbox" aria-label="Bildansicht">
+        <button class="lightbox-btn lightbox-close" type="button" aria-label="Schließen">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <button class="lightbox-btn lightbox-prev" type="button" aria-label="Vorheriges Bild">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="lightbox-btn lightbox-next" type="button" aria-label="Nächstes Bild">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <img class="lightbox-img" alt="">
+        <p class="lightbox-count" aria-live="polite"></p>
+    </dialog>
 
     <section id="demosets-soon" class="section demosets-soon">
         <div class="container">

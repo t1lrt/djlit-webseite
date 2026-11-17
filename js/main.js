@@ -54,3 +54,87 @@ if (navToggle && nav) {
     });
   });
 }
+
+// Gallery slider + lightbox
+(() => {
+  const track = document.querySelector(".gallery-track");
+  if (!track) return;
+
+  const items = Array.from(track.querySelectorAll(".gallery-item"));
+  const arrows = document.querySelectorAll(".gallery-arrow");
+  const progress = document.querySelector(".gallery-progress span");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const updateSlider = () => {
+    const max = track.scrollWidth - track.clientWidth;
+    const ratio = max > 0 ? track.scrollLeft / max : 0;
+    if (progress) progress.style.width = `${Math.max(8, ratio * 100)}%`;
+    arrows.forEach((btn) => {
+      const dir = Number(btn.dataset.dir);
+      btn.disabled = dir < 0 ? track.scrollLeft <= 4 : track.scrollLeft >= max - 4;
+    });
+  };
+
+  arrows.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const step = (items[0].offsetWidth + 18) * 2;
+      track.scrollBy({ left: Number(btn.dataset.dir) * step, behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  });
+
+  track.addEventListener("scroll", () => requestAnimationFrame(updateSlider), { passive: true });
+  window.addEventListener("resize", updateSlider);
+  updateSlider();
+
+  // Lightbox
+  const box = document.querySelector(".lightbox");
+  if (!box || typeof box.showModal !== "function") return;
+
+  const img = box.querySelector(".lightbox-img");
+  const count = box.querySelector(".lightbox-count");
+  let index = 0;
+
+  const show = (i) => {
+    index = (i + items.length) % items.length;
+    const item = items[index];
+    img.src = item.dataset.full;
+    img.alt = item.querySelector("img").alt;
+    count.textContent = `${index + 1} / ${items.length}`;
+    [index + 1, index - 1].forEach((n) => {
+      new Image().src = items[(n + items.length) % items.length].dataset.full;
+    });
+  };
+
+  const open = (i) => {
+    show(i);
+    document.body.style.overflow = "hidden";
+    box.showModal();
+  };
+
+  items.forEach((item, i) => item.addEventListener("click", () => open(i)));
+
+  box.querySelector(".lightbox-close").addEventListener("click", () => box.close());
+  box.querySelector(".lightbox-prev").addEventListener("click", () => show(index - 1));
+  box.querySelector(".lightbox-next").addEventListener("click", () => show(index + 1));
+  box.addEventListener("close", () => { document.body.style.overflow = ""; });
+
+  // Click on the dark area closes, click on the image does not
+  box.addEventListener("click", (e) => {
+    if (e.target === box) box.close();
+  });
+
+  box.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") show(index - 1);
+    if (e.key === "ArrowRight") show(index + 1);
+  });
+
+  // Swipe on touch devices
+  let startX = null;
+  box.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  box.addEventListener("touchend", (e) => {
+    if (startX === null) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    startX = null;
+    if (Math.abs(dx) > 50) show(index + (dx < 0 ? 1 : -1));
+  });
+})();
